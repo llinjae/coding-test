@@ -1,18 +1,5 @@
 function solution(arr) {
-    const currentLength = arr.length;
-  
-    let newLength = 1;
-    while (newLength < currentLength) {
-        newLength *= 2;
-    }
-
-    const zerosToAdd = newLength - currentLength;
-  
-    console.log(newLength, currentLength, zerosToAdd);
-    
-    for (let i = 0; i < zerosToAdd; i++) {
-        arr.push(0);
-    }
-
-    return arr;
+    const length = arr.length;
+    const totalLength = 2 ** Math.ceil(Math.log2(length));
+    return [...arr, ...new Array(totalLength - length).fill(0)];
 }
